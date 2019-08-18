@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <div>
+            <p><b>Solution :</b></p>
+            <ul>
+                <li>Assurer que l'url est corrêcte. Tu peux t'appuyer sur cette <a href="/response/1/1/1"
+                        target="blank">aide</a>.</li>
+                <li>Assurer que le paramètre POST est corrêcte :</li>
+            </ul>
+        </div>
+        <div>
+            <p>Il faut regarder le type de contenu du paramètre. On distingue 3 types fréquents :</p>
+            <ul>
+                <li>
+                    <p><b>Url encodé</b></p>
+                    <p>Il s'agit du format <b>key1=value1&key2=value2</b></p>
+                    <p>Tu peux le distinguer facilement dans dev tools.</p>
+                    <p><img src="post-url-encoded.jpg"></p>
+                    <p>Pour que la requête soit conforme, tu devrais implémenter un code similaire à :</p>
+                    <textarea rows="21" cols="80" readonly>final HttpClient httpClient = new DefaultHttpClient();
+useProxy(httpClient, "your.proxy.com");
+                                            
+final HttpPost httpPost = new HttpPost("http://your.link.com");
+                            
+//Don't forget to set Content-Type header
+httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
+//Complete other headers
+                                            
+final List&lt;NameValuePair&gt; parameters = new ArrayList&lt;NameValuePair&gt;();
+                            
+//Ensure that keys and values are correct
+parameters.add(new BasicNameValuePair("key1", "value1"));
+parameters.add(new BasicNameValuePair("key2", "value2"));
+                                            
+httpPost.setEntity(new UrlEncodedFormEntity(parameters));
+                                            
+final HttpResponse httpResponse = httpClient.execute(httpPost);
+//Use httpResponse as you need</textarea>
+                </li>
+
+                <li>
+                    <p><b>JSON</b></p>
+                    <p>Il s'agit du format <b>{"key1":"value1", "key2":"value2"}</b> ou encore <b>["value1",
+                            "value2"]</b> ou le <b>mélange des deux</b></p>
+                    <p>Tu peux le distinguer facilement dans dev tools.</p>
+                    <p><img src="post-json.jpg"></p>
+                    <p>Pour que la requête soit conforme, tu devrais implémenter un code similaire à :</p>
+                    <textarea rows="21" cols="80" readonly>final HttpClient httpClient = new DefaultHttpClient();
+useProxy(httpClient, "your.proxy.com");
+                                                
+final HttpPost httpPost = new HttpPost("http://your.link.com");
+                                                
+//Don't forget to set Content-Type header
+httpPost.setHeader("Content-Type", "application/json");
+//Complete other headers
+                                                
+final ObjectNode parameters = new ObjectMapper().createObjectNode();
+                            
+//Ensure that keys and values are correct
+parameters.put("key1", "value1");
+parameters.put("key2", "value2");
+                                                
+httpPost.setEntity(new StringEntity(parameters.toString()));
+                                                
+final HttpResponse httpResponse = httpClient.execute(httpPost);
+//Use httpResponse as you need</textarea>
+                    <p><b>NB : </b>Utiliser le List&lt;NameValuePair&gt; avec l'UrlEncodedFormEntity ne fonctionne pas
+                        ici.<br />
+                        En effet, le paramètre sortant ne sera pas du JSON mais key1=value1&key2=value2.<br />
+                        Il faut faire donc très attention.</p>
+                </li>
+
+                <li>
+                    <p><b>Texte libre</b></p>
+                    <p>Ici il n'y a pas de règle exacte. Tout dépend du site.<br />Par exemple,
+                        <b>key1->value1;key2->value</b> ou encore <b>key1:value1|key2:value</b> et ainsi de suite.</p>
+                    <p>Tu peux le distinguer facilement dans dev tools.</p>
+                    <p><img src="post-text-plain.jpg"></p>
+                    <p>Pour que la requête soit conforme, tu devrais implémenter un code similaire à :</p>
+                    <textarea rows="18" cols="80" readonly>final HttpClient httpClient = new DefaultHttpClient();
+useProxy(httpClient, "your.proxy.com");
+                    
+final HttpPost httpPost = new HttpPost("http://your.link.com");
+                    
+//Don't forget to set Content-Type header
+httpPost.setHeader("Content-Type", "text/plain; charset=utf-8");
+//Complete other headers
+                    
+//Ensure that keys and values are correct
+final String parameters = "key1->value1;key2->value2";
+                    
+httpPost.setEntity(new StringEntity(parameters));
+                    
+final HttpResponse httpResponse = httpClient.execute(httpPost);
+//Use httpResponse as you need</textarea>
+                    <p><b>NB : </b>Utiliser le List&lt;NameValuePair&gt; avec l'UrlEncodedFormEntity ou encore
+                        l'ObjectNode ne fonctionne pas
+                        ici.<br />
+                        En effet, le paramètre sortant sera encodé en url ou en JSON<br />
+                        Il faut faire donc très attention.</p>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+            <p><button id='previous' disabled>Précédent</button></p>
+        </div>
+        <hr />
+        <hr />
+        <div>
+            <p>Résumé de ta situation</p>
+            <ul>
+                <li>J'ai un status de connexion différent de 200</li>
+                <li>J'ai un status 400</li>
+                <li>Je suis sur une connexion de type POST</li>
+            </ul>
+        </div>
+        <%- newSolutionHtml %>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>

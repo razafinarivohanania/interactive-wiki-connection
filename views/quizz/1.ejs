@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <p>Quel est la valeur de ce status?</p>
+        <div>
+            <p><input type="radio" name="response" value="1" id="1" checked><label for="1">J'ai un status 400</label>
+            </p>
+            <p><input type="radio" name="response" value="2" id="2"><label for="2">J'ai un status 403</label></p>
+            <p><input type="radio" name="response" value="3" id="3"><label for="3">J'ai un status 407</label></p>
+            <p><input type="radio" name="response" value="4" id="4"><label for="4">J'ai un status 429</label></p>
+            <p><input type="radio" name="response" value="5" id="5"><label for="5">J'ai un status 503</label></p>
+            <p><input type="radio" name="response" value="6" id="6"><label for="6">J'ai une autre valeur parmi la
+                    liste</label></p>
+            <button id='previous' disabled>Précédent</button>
+            <button id='next' disabled>Suivant</button>
+        </div>
+        <hr />
+        <div>
+            <p>Résumé de ta situation</p>
+            <ul>
+                <li>J'ai un status de connexion différent de 200</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <p>Quel est ton problème de connexion?</p>
+        <div>
+            <p><input type="radio" name="response" value="1" id="1" checked><label for="1">J'ai un status de connexion
+                    différent de 200</label></p>
+            <p><input type="radio" name="response" value="2" id="2"><label for="2">J'ai un status de connexion 200 mais
+                    j'ai pas le bon contenu</label></p>
+            <p><input type="radio" name="response" value="3" id="3"><label for="3">J'ai une exception</label></p>
+            <p><input type="radio" name="response" value="4" id="4"><label for="4">J'ai une page qui ne répond
+                    pas</label></p>
+            <p><input type="radio" name="response" value="5" id="5"><label for="5">J'ai un autre problème parmi la
+                    liste</label></p>
+            <button id='next' disabled>Suivant</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>

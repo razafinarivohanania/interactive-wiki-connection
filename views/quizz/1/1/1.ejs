@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <div>
+            <p><b>Solution :</b></p>
+        </div>
+        <div>
+            Il faut faire en sorte que l'url connectée soit la même que celle qu'envoit le navigateur.<br /><br />
+            <b>NB :</b> Si tu es sur W2P, le log moteur peut être trompeur du fait que le navigateur peut modifier
+            l'affichage des caractères.<br />
+            Par exemple, il peut changer la valeur "&amp;amp;" par "&amp;"<br /><br />
+            Pour éviter toute confusion, l'astuce est d'encoder l'url en base 64 avant de le loguer.<br />
+            Une fois le log affiché, on copie l'url encodée puis on le décode <a href="https://www.base64decode.org/"
+                target="blank">ici</a><br />
+            Il ne reste plus qu'à faire la comparaison et corriger les caractères faussés.<br /><br />
+            Une autre astuce aussi est de télécharger le fichier log.<br />
+            Son contenu est original et on peut lui faire confiance.<br /><br />
+            <b>NB :</b> Il faut faire attention aussi aux espaces qui ne sont pas remarquables.<br />
+            Il y a des espaces qui ne sont pas de vrais espaces mais un autre caractère qui ne dispose pas de
+            forme.<br />
+            Leur code ASCII n'est pas le 32 mais une autre valeur.<br />
+            Et dans le navigateur 1 espace, 2 espaces, ou même trois espaces, ect sont affichés en UN seul espace.<br />
+            On peut avoir un cas aussi où ton url se termine par un espace auquel tu peux penser qu'elle ne l'est
+            pas.<br /><br />
+        </div>
+        <div>
+            <p><button id='previous' disabled>Précédent</button></p>
+        </div>
+        <hr />
+        <div>
+            <p>Résumé de ta situation</p>
+            <ul>
+                <li>J'ai un status de connexion différent de 200</li>
+                <li>J'ai un status 400</li>
+                <li>Je suis sur une connexion de type GET</li>
+            </ul>
+        </div>
+        <%- newSolutionHtml %>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>

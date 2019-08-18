@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <p>Bienvenue dans "Wiki connexion quizz".</p>
+        <p>Ca te permet de dépanner un problème de connexion facilement en répondant à quelques questions.</p>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.<noscript></noscript>
+        <p><button id="begin" disabled>Commencer</button></p>
+        <script>
+            var beginButton = document.getElementById('begin');
+            beginButton.disabled = false;
+            
+            beginButton.onclick = function () {
+                window.location.href = '/quizz';
+            }
+        </script>
+    </div>
+</body>
+
+</html>

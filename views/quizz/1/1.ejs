@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <div>
+            En général, un statut 400 indique qu'il y a problème au niveau de la requête envoyé.<br />
+            Tu peux te documenter <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status/400"
+                target="blank">ici</a> pour plus d'information.
+        </div>
+        <p>Tu es sur quel type de connexion?</p>
+        <div>
+            <p><input type="radio" name="response" value="1" id="1"><label for="1">Je suis sur une connexion de type
+                    GET</label></p>
+            <p><input type="radio" name="response" value="2" id="2"><label for="2">Je suis sur une connexion de type
+                    POST</label></p>
+            <button id='previous' disabled>Précédent</button>
+            <button id='next' disabled>Suivant</button>
+        </div>
+        <hr />
+        <div>
+            <p>Résumé de ta situation</p>
+            <ul>
+                <li>J'ai un status de connexion différent de 200</li>
+                <li>J'ai un status 400</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>

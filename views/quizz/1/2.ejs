@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wiki connexion quizz</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div>
+        <noscript>Ton JavaScript est désactivé. Tu ne peux pas répondre au quizz s'il n'est pas activé.</noscript>
+        <div>
+            En général, un statut 403 indique que le site ne t'autorise pas à accéder à son contenu.<br />
+            Tu peux te documenter <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status/403"
+                target="blank">ici</a> pour plus d'information.
+        </div>
+        <p>Que contient ta page en statut 403?</p>
+        <div>
+            <p><input type="radio" name="response" value="1" id="1" checked><label for="1">Elle contient un message
+                    similaire à "Access denied"</label></p>
+            <p><input type="radio" name="response" value="2" id="2"><label for="2">Elle contient du captcha</label></p>
+            <button id='previous' disabled>Précédent</button>
+            <button id='next' disabled>Suivant</button>
+        </div>
+        <hr />
+        <div>
+            <p>Résumé de ta situation</p>
+            <ul>
+                <li>J'ai un status de connexion différent de 200</li>
+                <li>J'ai un status 403</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="/common/js/select-default-response.js"></script>
+    <script type="text/javascript" src="/common/js/previous-next-buttons.js"></script>
+</body>
+
+</html>
